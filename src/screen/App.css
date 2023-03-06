@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #f1f1f1;
+    --secondary: #d3d3d3;
+    --terciary: #e6e6e6;
+    --quaternary: #d9d9d9;
+    /* --accent: ; */
+
+    --text: #333;
+}
+
+body {
+    background-color: var(--primary);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.calculator {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+
+    gap: 1rem;
+    display: grid;
+    grid-template-areas:
+        'display display display display'
+        'sete oito nove adicao'
+        'quatro cinco seis subtracao'
+        'um dois tres multiplicacao'
+        'zero virgula igual divisao';
+    ;
+    width: 25rem;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid var(--secondary);
+    border-radius: 3px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+}
+
+.display {
+    grid-area: display;
+    height: 5rem;
+    line-height: 5rem;
+
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    border-radius: 3px;
+    box-shadow: 0 1px 0 white;
+    padding: 0 1rem;
+    
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 0 1px 0 white;
+
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.display img {
+    width: 35px;
+}
+
+.display img:hover {
+    cursor: pointer;
+}
+
+.button {
+    background-color: var(--primary);
+    border: 1px solid var(--secondary);
+    border-radius: 3px;
+    box-shadow: 0 1px 0 white;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    text-shadow: 0 1px 0 white;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.button.um { grid-area: um; }
+.button.dois { grid-area: dois; }
+.button.tres { grid-area: tres; }
+.button.quatro { grid-area: quatro; }
+.button.cinco { grid-area: cinco; }
+.button.seis { grid-area: seis; }
+.button.sete { grid-area: sete; }
+.button.oito { grid-area: oito; }
+.button.nove { grid-area: nove; }
+.button.zero { grid-area: zero; }
+.button.virgula { grid-area: virgula; }
+.button.adicao { grid-area: adicao; }
+.button.subtracao { grid-area: subtracao; }
+.button.multiplicacao { grid-area: multiplicacao; }
+.button.divisao { grid-area: divisao; }
+.button.igual { grid-area: igual; }
+.button:is(.virgula, .adicao, .subtracao, .multiplicacao, .divisao, .igual) {
+    font-size: 1.6rem;
+    background-color: var(--terciary);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+
+.button:hover,
+.button:focus,
+.button:active {
+    background-color: var(--terciary);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+
+.button.button:is(.virgula, .adicao, .subtracao, .multiplicacao, .divisao, .igual):hover,
+.button.button:is(.virgula, .adicao, .subtracao, .multiplicacao, .divisao, .igual):focus,
+.button.button:is(.virgula, .adicao, .subtracao, .multiplicacao, .divisao, .igual):active {
+    background-color: var(--quaternary);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
